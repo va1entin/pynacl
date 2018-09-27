@@ -1,19 +1,24 @@
 Changelog
 =========
 
-1.3.0 (UNRELEASED)
-------------------
+1.3.0 2018-09-26
+----------------
 
+* Added support for Python 3.7.
 * Update ``libsodium`` to 1.0.16.
 * Run and test all code examples in PyNaCl docs through sphinx's
   doctest builder.
 * Add low-level bindings for chacha20-poly1305 AEAD constructions.
+* Add low-level bindings for the chacha20-poly1305 secretstream constructions.
+* Add low-level bindings for ed25519ph pre-hashed signing construction.
 * Add low-level bindings for constant-time increment and addition
   on fixed-precision big integers represented as little-endian
   byte sequences.
 * Add low-level bindings for the ISO/IEC 7816-4 compatible padding API.
+* Add low-level bindings for libsodium's crypto_kx... key exchange
+  construction.
 * Set hypothesis deadline to None in tests/test_pwhash.py to avoid
-  incorrect test failures on slower processor architectures.  GitHub 
+  incorrect test failures on slower processor architectures.  GitHub
   issue #370
 
 1.2.1 - 2017-12-04

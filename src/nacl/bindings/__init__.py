@@ -133,8 +133,26 @@ from nacl.bindings.crypto_scalarmult import (
 )
 from nacl.bindings.crypto_secretbox import (
     crypto_secretbox, crypto_secretbox_BOXZEROBYTES, crypto_secretbox_KEYBYTES,
+    crypto_secretbox_MACBYTES, crypto_secretbox_MESSAGEBYTES_MAX,
     crypto_secretbox_NONCEBYTES, crypto_secretbox_ZEROBYTES,
     crypto_secretbox_open
+)
+from nacl.bindings.crypto_secretstream import (
+    crypto_secretstream_xchacha20poly1305_ABYTES,
+    crypto_secretstream_xchacha20poly1305_HEADERBYTES,
+    crypto_secretstream_xchacha20poly1305_KEYBYTES,
+    crypto_secretstream_xchacha20poly1305_STATEBYTES,
+    crypto_secretstream_xchacha20poly1305_TAG_FINAL,
+    crypto_secretstream_xchacha20poly1305_TAG_MESSAGE,
+    crypto_secretstream_xchacha20poly1305_TAG_PUSH,
+    crypto_secretstream_xchacha20poly1305_TAG_REKEY,
+    crypto_secretstream_xchacha20poly1305_init_pull,
+    crypto_secretstream_xchacha20poly1305_init_push,
+    crypto_secretstream_xchacha20poly1305_keygen,
+    crypto_secretstream_xchacha20poly1305_pull,
+    crypto_secretstream_xchacha20poly1305_push,
+    crypto_secretstream_xchacha20poly1305_rekey,
+    crypto_secretstream_xchacha20poly1305_state,
 )
 from nacl.bindings.crypto_shorthash import (
     BYTES as crypto_shorthash_siphash24_BYTES,
@@ -148,7 +166,10 @@ from nacl.bindings.crypto_sign import (
     crypto_sign, crypto_sign_BYTES, crypto_sign_PUBLICKEYBYTES,
     crypto_sign_SECRETKEYBYTES, crypto_sign_SEEDBYTES,
     crypto_sign_ed25519_pk_to_curve25519, crypto_sign_ed25519_sk_to_curve25519,
-    crypto_sign_keypair, crypto_sign_open, crypto_sign_seed_keypair
+    crypto_sign_ed25519ph_STATEBYTES, crypto_sign_ed25519ph_final_create,
+    crypto_sign_ed25519ph_final_verify, crypto_sign_ed25519ph_state,
+    crypto_sign_ed25519ph_update, crypto_sign_keypair, crypto_sign_open,
+    crypto_sign_seed_keypair,
 )
 from nacl.bindings.randombytes import randombytes
 from nacl.bindings.sodium_core import sodium_init
@@ -238,8 +259,26 @@ __all__ = [
     "crypto_secretbox_NONCEBYTES",
     "crypto_secretbox_ZEROBYTES",
     "crypto_secretbox_BOXZEROBYTES",
+    "crypto_secretbox_MACBYTES",
+    "crypto_secretbox_MESSAGEBYTES_MAX",
     "crypto_secretbox",
     "crypto_secretbox_open",
+
+    "crypto_secretstream_xchacha20poly1305_ABYTES",
+    "crypto_secretstream_xchacha20poly1305_HEADERBYTES",
+    "crypto_secretstream_xchacha20poly1305_KEYBYTES",
+    "crypto_secretstream_xchacha20poly1305_STATEBYTES",
+    "crypto_secretstream_xchacha20poly1305_TAG_FINAL",
+    "crypto_secretstream_xchacha20poly1305_TAG_MESSAGE",
+    "crypto_secretstream_xchacha20poly1305_TAG_PUSH",
+    "crypto_secretstream_xchacha20poly1305_TAG_REKEY",
+    "crypto_secretstream_xchacha20poly1305_init_pull",
+    "crypto_secretstream_xchacha20poly1305_init_push",
+    "crypto_secretstream_xchacha20poly1305_keygen",
+    "crypto_secretstream_xchacha20poly1305_pull",
+    "crypto_secretstream_xchacha20poly1305_push",
+    "crypto_secretstream_xchacha20poly1305_rekey",
+    "crypto_secretstream_xchacha20poly1305_state",
 
     "crypto_shorthash_siphash24_BYTES",
     "crypto_shorthash_siphash24_KEYBYTES",
@@ -258,6 +297,11 @@ __all__ = [
     "crypto_sign_open",
     "crypto_sign_ed25519_pk_to_curve25519",
     "crypto_sign_ed25519_sk_to_curve25519",
+    "crypto_sign_ed25519ph_STATEBYTES",
+    "crypto_sign_ed25519ph_final_create",
+    "crypto_sign_ed25519ph_final_verify",
+    "crypto_sign_ed25519ph_state",
+    "crypto_sign_ed25519ph_update",
 
     "crypto_pwhash_ALG_ARGON2I13",
     "crypto_pwhash_ALG_ARGON2ID13",

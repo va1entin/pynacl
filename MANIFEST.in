@@ -4,6 +4,8 @@ include README.rst
 include CHANGELOG.rst
 include INSTALL.rst
 
+include pyproject.toml
+
 # libsodium files
 recursive-include src/libsodium *
 recursive-include src/libsodium *.S
@@ -45,6 +47,9 @@ exclude .readthedocs.yml
 
 # Remove the coverage config
 exclude .coveragerc
+
+# exclude codecov
+exclude codecov.yml
 
 # Remove release automation script
 exclude tasks.py
